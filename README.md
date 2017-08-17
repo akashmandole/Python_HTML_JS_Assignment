@@ -1,4 +1,4 @@
-# Python_HTML_JS_Assignment
+# Sample Project
 
 
 1) Web application GUI, using HTML and JavaScript to parse a JSON data. 
