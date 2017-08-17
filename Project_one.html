@@ -1,0 +1,127 @@
+<html>
+	<!--
+		For the sake of simplicity and readability i have added the stylesheet and javascipt code in the HTML file. These can be seggregated into separate .css and .js files.
+	-->
+    <head>
+        <title>Project One</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<style>
+			table {
+				border: 1px;
+				width: 100%;
+				cellpadding:0;
+				cellspacing:0;
+			}
+
+			th, td {
+				text-align: left;
+				padding: 8px;
+			}
+
+			tr:nth-child(even){background-color: #f2f2f2}
+
+			th {
+				background-color: #3498DB;
+				color: white;
+			}
+		</style>
+	</head>
+
+    <body>
+        <h1>Project One</h1>
+		 
+		<!-- 
+			Various elements can be created to demonstrate the functionality i am using two div elements
+		-->
+		<div id='div1'></div>
+		<br></br>
+		<div id='div2'></div>
+
+        <script language="javascript" type="text/javascript">
+            
+			var data = [ 	{ 	first_name : 'Rose',
+								last_name  : 'Tyler',
+								home       : 'Earth' },
+							{ 	first_name : 'Zoe',
+								last_name  : 'Heriot',
+								home       : 'Space Station W3'},
+							{ 	first_name : 'Jo',
+								last_name  : 'Grant',
+								home       : 'Earth'},
+							{	first_name : 'Leela',
+								last_name  : null,
+								home       : 'Unspecified'},
+							{	first_name : 'Romana',
+								last_name  : null,
+								home       : 'Gallifrey'},
+							{ 	first_name : 'Clara',
+								last_name  : 'Oswald',
+								home       : 'Earth'},
+							{ 	first_name : 'Adric',
+								last_name  : null,
+								home       : 'Alzarius'},
+							{ 	first_name : 'Susan',
+								last_name  : 'Foreman',
+								home       : 'Gallifrey'} 
+						];
+		 
+			
+		// To insert the table into different elements call the function With different id's.  
+		create_table_into_obj(data,"div1");
+		create_table_into_obj(data,"div2");
+	
+
+		function create_table_into_obj(table_data, obj) {
+
+			var table = document.createElement('table');
+			var tr = document.createElement('tr');   
+
+			var th1 = document.createElement('th');
+			var th2 = document.createElement('th');
+			var th3 = document.createElement('th');
+
+			var text1 = document.createTextNode("First Name");
+			var text2 = document.createTextNode("Last Name");
+			var text3 = document.createTextNode("Home");
+
+			th1.appendChild(text1);
+			th2.appendChild(text2);
+			th3.appendChild(text3);
+		
+			tr.appendChild(th1);
+			tr.appendChild(th2);
+			tr.appendChild(th3);
+
+			table.appendChild(tr);
+			
+			for (var i = 0; i < table_data.length; i++){
+				var tr = document.createElement('tr');   
+
+				var td1 = document.createElement('td');
+				var td2 = document.createElement('td');
+				var td3 = document.createElement('td');
+
+				var text1 = document.createTextNode(table_data[i]["first_name"]);
+				var text2 = document.createTextNode(table_data[i]["last_name"]);
+				var text3 = document.createTextNode(table_data[i]["home"]);
+
+				td1.appendChild(text1);
+				td2.appendChild(text2);
+				td3.appendChild(text3);
+		
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+
+				table.appendChild(tr);
+			}
+			
+			var objElement = document.getElementById(obj);
+			objElement.appendChild(table);
+
+		}
+
+        </script>
+    </body>
+
+</html>
